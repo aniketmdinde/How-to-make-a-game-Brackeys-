@@ -1,0 +1,25 @@
+using UnityEngine;
+
+public class PlayerMov : MonoBehaviour
+   
+{
+    public Rigidbody rb;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    //FixedUpdate is called once per frame in equal intervals of time. Used for Physics calculations in Games.
+    void FixedUpdate()
+    {
+        rb.AddForce(0, 0, 2000 * Time.deltaTime);// Time.deltaTime causes the frames to sychronize with time
+                                                 //so that such that it it divides the time ie 1 sec by frames
+                                                 // per second. For eg:10 frames in one sec so 1/10=0.1
+    }
+}
