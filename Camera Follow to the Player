@@ -1,0 +1,16 @@
+
+using UnityEngine;
+
+public class CamFollow : MonoBehaviour
+{
+    public Transform playpos;//This refers to the transform of the Player in Hierarcy and playpos is a variable which stores the transform component of player
+    public Vector3 offset;//Vector3 is a function which needs 3 values ie on x, y and z which is stored in varaible offset
+    void Update()
+    {
+        transform.position = playpos.position + offset;//Here transform.position is the position of the camera
+                                                     //playpos.position is the position of player 
+                                                     //offset is the Vector3 variable which makes the camera follow the position of the player by keeping some distance
+    }
+}
+//Vector addition is performed in order to calculate positions
+//offset value can be changed in the inspector of Camera
