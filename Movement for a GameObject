@@ -1,0 +1,35 @@
+
+using UnityEngine;
+
+public class PlayerMov : MonoBehaviour
+   
+{
+    public Rigidbody rb;
+    public float forwardForce = 2000f;
+    public float sidewayForce=500f;//By declaring variables and giving them a default value and by using public, we can make
+                                   //the variable available in the inspector so that we can modify its value in inspector itself
+    void Start() 
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void FixedUpdate()
+    {
+        rb.AddForce(0,0,forwardForce * Time.deltaTime);
+        if (Input.GetKey("d"))                                  //Input.GetKey() allow us to specify a operation for a certain key
+        {
+            rb.AddForce(sidewayForce * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey("a"))
+        {
+            rb.AddForce(-sidewayForce * Time.deltaTime, 0, 0);// Negative sign is to apply the force in the opposite direction that of specified
+                                                              //All the if statements should be written in update method as it does not does any physics calculations.
+        }                                                      // Also it is important because fixedupdate can get slow which will cause degrade of gameplay
+    }
+}
