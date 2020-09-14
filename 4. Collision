@@ -1,0 +1,24 @@
+
+using UnityEngine;
+
+public class CollideObstacle : MonoBehaviour
+{
+    public PlayerMov movement;
+    void OnCollisionEnter(Collision collisionInfo)//This is a function through which we can perform operation on collision of object
+                                                  //Collision is the derived data type of the variable collisionInfo
+    {
+        // Debug.Log(collisionInfo.collider.name); This print the name of the collider gameobject that has been hit
+        //But handling names of obstacles with different names wil cause stress on the machine
+        //So a tag is used to group these objects so that all these objects can be referenced with that same tag
+
+        Debug.Log(collisionInfo.collider.tag);// this gives info of the tag name of what has been hit
+
+        if (collisionInfo.collider.tag == "Obstacle")//If the object that has been collided is Obstacle then......
+        {
+            movement.enabled = false;// stop the movement of the player
+
+        }
+
+    }
+}
+//This script is added to the player since it will collide an obstacle
