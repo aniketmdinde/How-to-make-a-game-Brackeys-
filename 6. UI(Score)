@@ -1,0 +1,15 @@
+using UnityEngine;
+using UnityEngine.UI;//Library used to perform things on UI
+
+public class Score : MonoBehaviour
+{
+    public Transform player;
+    public Text scoreText;
+    void Update()
+    {
+        scoreText.text = player.position.z.ToString("0");//scoreText.text is a reference to Text component in Text element of Canvas
+                                                         //ToString() converts any data type to string. Specifically it stores value of 
+                                                         //any data type in string 
+                                                         //0 cause the decimal to not appear and instead shows whole nos
+    }
+}
