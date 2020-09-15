@@ -1,0 +1,56 @@
+#GameManager Script
+using UnityEngine;
+using UnityEngine.SceneManagement;
+public class GameManager : MonoBehaviour
+{
+   public float restartDelay=1f;
+     bool gameHasEnded = false;
+   public void EndGame()
+   {
+        if (gameHasEnded == false)
+        {
+            gameHasEnded = true;
+            Debug.Log("GAME OVER");
+            Invoke("Restart", restartDelay);
+        }
+       
+   }
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public GameObject completeLevelUI;
+    public void CompleteLevel()
+    {
+        completeLevelUI.SetActive(true);//Setactive allow to activate a component or gameobject by using true for enable and false for disable
+    }
+}
+
+#EndTrigger Script
+using UnityEngine;
+
+public class EndTrigger : MonoBehaviour
+{
+
+   void OnTriggerEnter()//since rigidbody component of cube used for detecting winning has checked trigger
+    {
+        FindObjectOfType<GameManager>().CompleteLevel();//fuction from GameManager
+    }
+}
+
+#NextLevel Script
+
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class NextLevel : MonoBehaviour
+{
+    void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//Build index is a reference no for scene in build settings
+    }
+
+}
+
+
