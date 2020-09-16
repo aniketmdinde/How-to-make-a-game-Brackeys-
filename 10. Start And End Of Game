@@ -1,0 +1,24 @@
+#Start
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Welcome : MonoBehaviour
+{
+  public void StartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+}
+
+#End
+
+using UnityEngine;
+
+public class Credits : MonoBehaviour
+{
+   public void EndGame()
+    {
+        Debug.Log("QUIT");
+        Application.Quit();//This enables to quit a running Application
+    }
+}
